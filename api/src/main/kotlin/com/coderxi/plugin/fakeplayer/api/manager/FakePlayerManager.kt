@@ -30,6 +30,8 @@ interface FakePlayerManager {
 
     suspend fun getFromRepository(name: String): FakePlayer?
 
+    suspend fun deleteFromRepository(uuid: UUID)
+
     suspend fun findNamesBySettingFromRepository(key: String, value: String): Collection<String>
 
     suspend fun getActiveActionStatesFromRepository(uuid: UUID): Collection<ActionState>

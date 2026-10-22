@@ -58,6 +58,7 @@ class FakePlayerManagerImpl : FakePlayerManager, PluginComponent, Listener {
 
     override suspend fun getFromRepository(uuid: UUID): FakePlayer? = withContext(Dispatchers.IO) { repository.findByUuid(uuid) }
     override suspend fun getFromRepository(name: String): FakePlayer? = withContext(Dispatchers.IO) { repository.findByName(name) }
+    override suspend fun deleteFromRepository(uuid: UUID) = withContext(Dispatchers.IO) { repository.delete(uuid) }
     override suspend fun findNamesBySettingFromRepository(key: String, value: String): Collection<String> = withContext(Dispatchers.IO) { repository.findNamesBySetting(key,value) }
     override suspend fun getActiveActionStatesFromRepository(uuid: UUID): Collection<ActionState> = withContext(Dispatchers.IO) { repository.findActiveActionStatesByUuid(uuid) }
     override suspend fun findNamesByCreatorUuidAndSetting(creatorUuid: UUID, settingKey: String, settingValue: String): Collection<String> = withContext(Dispatchers.IO) { repository.findNamesByCreatorUuidAndSetting(creatorUuid, settingKey, settingValue) }
