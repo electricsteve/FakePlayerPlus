@@ -46,7 +46,12 @@ interface FakePlayerManager {
 
     // 生成假人(先查数据库再生成)
 
-    suspend fun spawn(name: String, spawner: CommandSender, location: Location? = null): FakePlayer?
+    @Deprecated("Use spawn(name, spawner, location, uuid) instead", ReplaceWith("spawn(name, spawner, location, null)"))
+    suspend fun spawn(name: String, spawner: CommandSender, location: Location? = null): FakePlayer? {
+        return spawn(name, spawner, location, null)
+    }
+
+    suspend fun spawn(name: String, spawner: CommandSender, location: Location? = null, uuid: UUID? = null): FakePlayer?
 
     suspend fun rename(oldName: String, newName: String, operator: CommandSender, force: Boolean): FakePlayer
 
