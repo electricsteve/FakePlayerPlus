@@ -268,7 +268,7 @@ class FakePlayerCommand : PluginComponent {
     @Permission(SKIN)
     @Cooldown(value = 1, unit = TimeUnit.MINUTES)
     @HelpLine("fakeplayer.help.cmd.skin")
-    fun CommandSender.skin(@Named("name") targetName: String, @Select fakePlayer: FakePlayer) {
+    fun CommandSender.skin(@Select fakePlayer: FakePlayer, targetName: String) {
         launch {
             val skin = SkinFetcher.getPlayerTexturesByName(targetName)
             withContext(fakePlayer.dispatcher) {
