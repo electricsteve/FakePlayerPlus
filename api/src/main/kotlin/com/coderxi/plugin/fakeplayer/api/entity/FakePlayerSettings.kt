@@ -12,6 +12,7 @@ interface FakePlayerSettings {
     var xpNoCooldown: Boolean
     var autoEquipTool: Boolean
     var keepInventory: Boolean
+    var deathMessage: Boolean
     var interactedAction: InteractedAction
     var shiftInteractedAction: InteractedAction
     enum class InteractedAction {
@@ -45,6 +46,7 @@ interface FakePlayerSettings {
         that.xpNoCooldown = xpNoCooldown
         that.autoEquipTool = autoEquipTool
         that.keepInventory = keepInventory
+        that.deathMessage = deathMessage
         that.interactedAction = interactedAction
         that.shiftInteractedAction = shiftInteractedAction
         that.deathAction = deathAction
